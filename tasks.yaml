@@ -4,11 +4,11 @@ metadata:
   name: npm
 spec:
   workspaces:
-    - name: source
+    - name: output
   steps:
     - name: npminstall
       image: node:20-buster-slim
-      workingDir: $(workspaces.source.path)
+      workingDir: $(workspaces.output.path)
       script: |
         #!/bin/bash
         set -e
@@ -29,11 +29,11 @@ metadata:
   name: jasmine
 spec:
   workspaces:
-    - name: source
+    - name: output
   steps:
     - name: jasminetests
       image: node:20-buster-slim
-      workingDir: $(workspaces.source.path)
+      workingDir: $(workspaces.output.path)
       script: |
         #!/bin/bash
         set -e
